@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "./",
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc --noEmit",
@@ -11,7 +12,9 @@
     "preview": "vite preview",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "check-all": "pnpm run lint && pnpm run format && pnpm run typecheck"
+    "check-all": "pnpm run lint && pnpm run format && pnpm run typecheck",
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.2.0",
@@ -27,6 +30,7 @@
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.3.0",
     "globals": "^16.5.0",
     "prettier": "3.7.4",
     "typescript": "~5.9.3",

@@ -29,10 +29,6 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_SHA: ${{ github.sha }}
         run: |
-          pnpm run build
-          cd dist
           git config --global user.email "github-actions-bot@github.com"
           git config --global user.name "github-actions-bot"
-          git add .
-          git commit -m "Deploy to GitHub Pages ($GITHUB_SHA) on $(date +'%Y-%m-%d')"
-          git push --force --quiet "https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages:gh-pages
+          pnpm run deploy -m "[bot] Deploy to GitHub Pages ($GITHUB_SHA) on $(date +'%Y-%m-%d')"
